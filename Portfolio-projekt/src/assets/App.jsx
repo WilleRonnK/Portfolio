@@ -1,23 +1,57 @@
-import React from 'react';
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
-import Home from './components/pages/Home';
-import Resume from './components/pages/Resume';
-import Header from './components/elements/Header';
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Header />}>
-      <Route index element={<Home />} />
-      <Route path="resume" element={<Resume />} />
-    </Route>
-  )
-);
+import "./App.css";
+import { Link } from "react-scroll";
 
 function App() {
+  const menuItems = [
+    {
+      id: 1,
+      title: "home",
+    },
+    {
+      id: 2,
+      title: "portfolio",
+    },
+    {
+      id: 3,
+      title: "contact",
+    },
+   
+  ];
+
   return (
-    <RouterProvider router={router} />
+    <div className="App">
+      <header>
+        <nav>
+          <h2>Wille Portfolio</h2>
+
+          <ul>
+            {menuItems.map((menu) => (
+              <li>
+                <Link
+                  to={menu.title}
+                  smooth={true}
+                  offset={-560}
+                  duration={1}
+                >
+                  {menu.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        {menuItems.map((menu) => (
+          <div className="content">
+            <h1 className="content-header" id={menu.title}>
+              {menu.title}
+            </h1>
+          </div>
+        ))}
+      </main>
+    </div>
   );
 }
 
 export default App;
-
