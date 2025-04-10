@@ -23,14 +23,15 @@ function App() {
     },
   ];
 
-  const useTypewriter = (text, speed = 50) => {
+  const useTypewriter = (text, speed = 50, delay = 0) => {
     const [displayText, setDisplayText] = useState('');
 
     useEffect(() => {
       let i = 0;
-      const typingInterval = setInterval(() => {
+      const startTyping = setTimeout(() => {
+        const typingInterval = setInterval(() => {
         if (i < text.length) {
-          setDisplayText(prevText => prevText + text.charAt(i));
+          setDisplayText((prevText) => prevText + text.charAt(i));
           i++;
         } else {
           clearInterval(typingInterval);
@@ -40,13 +41,18 @@ function App() {
       return () => {
         clearInterval(typingInterval);
       };
-    }, [text, speed]);
+    }, delay);
+
+    return () => {
+      clearInterval(startTyping);
+    };  
+  }, [text, speed, delay]);
 
     return displayText;
   };
-  const homeText = useTypewriter("  Hi, my name is Wille.");
-  const homeDescription = useTypewriter("  I'm a Software Developer");
-
+  const homeText = useTypewriter("  Hi, my name is Wille.", 50, 0);
+  const homeDescription = useTypewriter("  I'm a Software Developer", 50, 1000);
+  
   return (
     <div className="App">
       <header>
@@ -82,6 +88,14 @@ function App() {
               <div className="home-text">
                 <h1>{homeText}</h1>
                 <p>{homeDescription}</p>
+                <Link
+                  to="portfolio"
+                  smooth={true}
+                  offset={-80}
+                  duration={1}
+                >
+                  <button className="home-button">See my experience</button>
+                </Link>
               </div>
             ) : (
               <h1 className="content-header">{menu.title}</h1>
