@@ -52,3 +52,15 @@ nav {
     color: rgb(243, 221, 221);
     text-transform: capitalize;
   }
+  .menu-icon{
+    margin: 5px;
+    vertical-align: middle;
+  }
+
+.home-section{
+  background-image: url('https://cdn.statically.io/img/codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg?f=webp&w=720');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
