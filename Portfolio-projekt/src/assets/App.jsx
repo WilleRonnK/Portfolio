@@ -2,6 +2,7 @@ import "./App.css";
 import { Link } from "react-scroll";
 import { FaHome, FaBook, FaPaperPlane } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
+import portfolioImage from './assets/IMG_0920.jpg';
 
 function App() {
   const menuItems = [
@@ -9,7 +10,6 @@ function App() {
       id: 1,
       title: "home",
       icon: <FaHome />,
-      Image: 'https://i.sstatic.net/jGlzr.png'
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ function App() {
     },
   ];
 
-  const useTypewriter = (text, speed = 50, delay = 0) => {
+  const useTypewriter = (text, speed = 50, delay = 50) => {
     const [displayText, setDisplayText] = useState('');
 
     useEffect(() => {
@@ -50,8 +50,10 @@ function App() {
 
     return displayText;
   };
-  const homeText = useTypewriter("  Hi, my name is Wille.", 50, 0);
-  const homeDescription = useTypewriter("  I'm a Software Developer", 50, 1000);
+  const homeText = useTypewriter("  Hi, my name is Wille.", 100, 0);
+  const homeDescription = useTypewriter("  I'm a Software Developer", 100, 2000);
+  const homebutton = useTypewriter(" See my experience", 100, 4500);
+
   
   return (
     <div className="App">
@@ -85,21 +87,45 @@ function App() {
             id={menu.title}
           >
             {menu.title === "home" ? (
-              <div className="home-text">
+              <div className="home-content">
                 <h1>{homeText}</h1>
                 <p>{homeDescription}</p>
+                {homebutton && (
                 <Link
                   to="portfolio"
                   smooth={true}
                   offset={-80}
                   duration={1}
                 >
-                  <button className="home-button">See my experience</button>
+                  <button className="home-button">
+                    {homebutton}
+                  </button>
                 </Link>
+                )}
               </div>
-            ) : (
-              <h1 className="content-header">{menu.title}</h1>
-            )}
+            )   : null}
+
+       <div
+           key={menu.id}
+           className={`content ${menu.title === "portfolio" ? "portfolio-section" : ""}`}
+            id={menu.title}
+            >
+              {menu.title === "portfolio" ? (
+  <div className="portfolio-content">
+    <div className="portfolio-image-container">
+      <img className="portfolio-image" src={portfolioImage} alt="portfolio" />
+    </div>
+    <div className="portfolio-textbox">
+      <h2>About My Portfolio</h2>
+      <p>
+        This is a brief description of my portfolio. Here, you can find my
+        projects, skills, and experiences as a software developer.
+      </p>
+    </div>
+  </div>
+  
+) : null}
+              </div>   
           </div>
         ))}
       </main>

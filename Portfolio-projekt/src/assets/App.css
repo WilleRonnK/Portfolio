@@ -21,7 +21,6 @@ nav {
     align-items: center;
     justify-content: space-around;
     width: 40%;
-  
     list-style: none;
     font-weight: bold;
     margin: 0;
@@ -42,10 +41,7 @@ nav {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: crimson;
     margin-top: 10px;
-    
-    border-radius: 10px;
   }
   
   .content-header {
@@ -57,12 +53,14 @@ nav {
     vertical-align: middle;
   }
 
-.home-section{
-  background-image: url('https://cdn.statically.io/img/codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg?f=webp&w=720');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
+
+.home-content{
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  position: top;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .home-button{
@@ -70,7 +68,40 @@ nav {
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
+  position: relative;
   border: none;
   cursor: pointer;
   font-size: 16px;
+}
+
+
+.portfolio-image {
+  width: 30%; 
+  height: auto; 
+  border-radius: 30%;
+}
+.portfolio-content {
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-image-container {
+  flex: 1;
+  margin-left: 10%;
+}
+
+
+.portfolio-textbox {
+  flex: 1;
+  margin-right: 20%;
+}
+
+.portfolio-textbox h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.portfolio-textbox p {
+  font-size: 16px;
+  line-height: 1.5;
 }
