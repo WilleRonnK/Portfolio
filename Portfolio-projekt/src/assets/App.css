@@ -75,6 +75,22 @@ nav {
 }
 
 
+.portfolio-section {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.portfolio-content {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  width: 100%; 
+  margin-bottom: 50px; 
+  padding: 10px;
+}
+
+
 .portfolio-image {
   width: 30%; 
   height: auto; 
@@ -104,4 +120,17 @@ nav {
 .portfolio-textbox p {
   font-size: 16px;
   line-height: 1.5;
+}
+
+.portfolio-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+  margin-bottom: 30px; 
+justify-content: space-around
+}
+ 
+.portfolio-list {
+  text-align: center; 
+
 }
