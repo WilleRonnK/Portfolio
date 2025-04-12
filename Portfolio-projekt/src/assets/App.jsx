@@ -1,8 +1,16 @@
 import "./App.css";
 import { Link } from "react-scroll";
-import { FaHome, FaBook, FaPaperPlane } from 'react-icons/fa';
-import { useState, useEffect, act } from 'react';
+import { FaHome, FaBook, FaPaperPlane, FaJava, FaReact, FaNodeJs, FaGithub, FaFigma} from 'react-icons/fa';
+import {TbBrandTypescript} from 'react-icons/tb';
+import { RiJavascriptLine, RiNextjsLine, } from 'react-icons/ri';
+import {PiFileHtml, PiFileCssBold  } from 'react-icons/pi';
+import {BiLogoSpringBoot, BiLogoMongodb } from 'react-icons/bi';
+import {SiPostgresql } from 'react-icons/si';
+import {DiScrum } from 'react-icons/di';
+import { useState, useEffect} from 'react';
 import portfolioImage from './assets/IMG_0920.jpg';
+
+const PDF_FILE_URL = '/Wille%20cv%20-%202025.pdf';
 
 function useTypewriter(text, speed = 50, delay = 50) {
   const [displayText, setDisplayText] = useState('');
@@ -26,7 +34,7 @@ function useTypewriter(text, speed = 50, delay = 50) {
   return displayText;
 }
 
-function App() {
+function App() { 
   const menuItems = [
     { id: 1, 
       title: "home", 
@@ -41,11 +49,20 @@ function App() {
       icon: <FaPaperPlane /> },
   ];
 
-  const homeText = useTypewriter("  Hi, my name is Wille.", 100, 0);
+  const homeText = useTypewriter("  Hi, my name is Wille", 100, 0);
   const homeDescription = useTypewriter("  I'm a Software Developer", 100, 2000);
   const homeButton = useTypewriter(" See my experience", 100, 4500);
 
-  const [activeList, setActiveList] = useState("projects");
+  const [activeList, setActiveList] = useState("languages");
+  const downloadCV = () => {
+    const link = document.createElement("a");
+    link.href = PDF_FILE_URL;
+    link.download = "WilleCv-2025.pdf"; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   return (
     <div className="App">
       <header>
@@ -85,45 +102,135 @@ function App() {
               <img className="portfolio-image" src={portfolioImage} alt="portfolio" />
             </div>
             <div className="portfolio-textbox">
-              <h2>About My Portfolio</h2>
+              <h2>Ung och driven Fullstack-utvecklare</h2>
               <p>
-                This is a brief description of my portfolio. Here, you can find my
-                projects, skills, and experiences as a software developer.
+              Under min utbildning fokuserade jag på både backend och frontend, med tyngdpunkt på Java, JavaScript och moderna utvecklingsverktyg som GitHub, IntelliJ, Visual Studio Code, MongoDB och StarUML.
+              Min utbildning inkluderade även två LIA-perioder där jag arbetade praktiskt i ett utvecklingsteam hos Klarr med att bygga en plattform som hjälper skolor följa elevers praktikframsteg.
               </p>
+            </div>
+            <div className="cv-button-container">
+              <button onClick={() => downloadCV(PDF_FILE_URL)}> Download CV</button>
             </div>
           </div>
 
+          
+
           <div className="portfolio-tabs">
-            <button onClick={() => setActiveList("languages")}>Languages</button>
-            <button onClick={() => setActiveList("frameworks")}>Frameworks</button>
-            <button onClick={() => setActiveList("tools")}>Tools</button>
-          </div>
+            <button
+              className={activeList === "languages" ? "active-tab" : ""}
+              onClick={() => setActiveList("languages")}
+           >
+             Languages
+  </button>
+  <button
+    className={activeList === "frameworks" ? "active-tab" : ""}
+    onClick={() => setActiveList("frameworks")}
+  >
+    Frameworks
+  </button>
+  <button
+    className={activeList === "tools" ? "active-tab" : ""}
+    onClick={() => setActiveList("tools")}
+  >
+    Tools
+  </button>
+</div>
 
           <div className="portfolio-list">
             {activeList === "languages" && (
             <ul className="languages-list">
-              <li>JavaScript</li>
-              <li>Java</li>
-              <li>TypeScript</li>
-              <li>HTML</li>
-              <li>CSS</li>
+              <li>
+                <span className="portfolio-icon">
+                  <RiJavascriptLine/>
+                </span>
+                JavaScript
+              </li>
+              <li>
+                <span className="portfolio-icon">
+                  <FaJava/>
+                </span>
+                Java
+              </li>
+              <li>
+                <span className="portfolio-icon">
+                  <TbBrandTypescript/>
+                </span>
+                TypeScript
+              </li>
+              <li>
+                <span className="portfolio-icon">
+                  <PiFileHtml/>
+                </span>
+                HTML
+              </li>
+              <li>
+                <span className="portfolio-icon">
+                  <PiFileCssBold/>
+                </span>
+                CSS
+              </li>
             </ul>
                )}
             {activeList === "frameworks" && (
             <ul className="frameworks-list">
-              <li>React</li>
-              <li>Node.js</li>
-              <li>NextJs</li>
-              <li>Spring Boot</li>
+              <li>
+                <span className="portfolio-icon">
+                <FaReact/>
+                </span>
+                React
+                </li>
+              <li>
+                <span className="portfolio-icon">
+                <RiNextjsLine size={80} />
+                </span>
+                Node.js
+                </li>
+              <li>
+                <span className="portfolio-icon">
+                <FaNodeJs/>
+                </span>
+                NextJs
+                </li>
+              <li>
+                <span className="portfolio-icon">
+                <BiLogoMongodb/>
+                </span>
+                Spring Boot
+                </li>
             </ul>
             )}
             {activeList === "tools" && (
             <ul className="tools-list">
-              <li>Github</li>
-              <li>Figma</li>
-              <li>PostSQL</li>
-              <li>MongoDB</li>
-              <li>Scrum</li>
+              <li>
+                <span className="portfolio-icon">
+                <FaGithub/>
+                </span>
+                Github
+                </li>
+              <li>
+                <span className="portfolio-icon">
+                <BiLogoSpringBoot/>
+                </span>
+                Figma
+                </li>
+              <li>
+                <span className="portfolio-icon">
+                <FaFigma/>
+                </span>
+                PostSQL
+                </li>
+              <li>
+                <span className="portfolio-icon">
+                <SiPostgresql/>
+                </span>
+                MongoDB
+                </li>
+              <li>
+                <span className="portfolio-icon">
+                <DiScrum/>
+                </span>
+                Scrum
+                </li>
             </ul>
             )}
           </div>

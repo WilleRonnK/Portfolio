@@ -1,6 +1,6 @@
 header{
-color: aqua;
-padding: 0px 1;
+color: rgb(6, 240, 240);
+padding: 0px 1px;
 position: sticky;
 top: 0;
 width: 100%;
@@ -83,54 +83,126 @@ nav {
 
 .portfolio-content {
   display: flex;
-  flex-direction: row; 
+  justify-content: space-between; 
   align-items: center;
-  width: 100%; 
-  margin-bottom: 50px; 
+  width: 100%;
+  margin-bottom: 50px;
   padding: 10px;
+  gap: 20px; 
 }
-
 
 .portfolio-image {
-  width: 30%; 
-  height: auto; 
-  border-radius: 30%;
-}
-.portfolio-content {
-  display: flex;
-  align-items: center;
+  width: 80%; 
+  height: auto;
+  border-radius: 50%; 
 }
 
 .portfolio-image-container {
-  flex: 1;
-  margin-left: 10%;
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  height: 295px;
+  margin: 0 10px; 
+  border-radius: 10px; 
 }
 
-
 .portfolio-textbox {
-  flex: 1;
-  margin-right: 20%;
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  height: 295px;
+  margin: 0 10px; 
+  border-radius: 10px; 
 }
 
 .portfolio-textbox h2 {
   margin-bottom: 10px;
   font-size: 24px;
+  text-align: center;
 }
 
 .portfolio-textbox p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5;
+  text-align: center;
+}
+
+.cv-button-container {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  height: 295px;
+  margin: 0 10px; 
+  border-radius: 10px; 
+}
+
+.cv-button-container button {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .portfolio-tabs {
   display: flex;
   justify-content: center;
-  gap: 10px; 
-  margin-bottom: 30px; 
-justify-content: space-around
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
- 
-.portfolio-list {
-  text-align: center; 
 
+.portfolio-tabs button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.portfolio-tabs button:hover {
+  background-color: #961d1d;
+}
+.portfolio-tabs .active-tab {
+  background-color: #961d1d;
+  color: white;
+}
+
+.portfolio-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 1rem;
+  width: 100%;
+}
+.portfolio-list li {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 0.5rem;
+  margin: 10px;
+  outline: auto;
+  outline-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.portfolio-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 10px;
+  font-size: 5rem;
 }
