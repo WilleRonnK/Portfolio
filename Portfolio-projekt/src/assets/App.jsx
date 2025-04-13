@@ -2,13 +2,14 @@ import "./App.css";
 import { Link } from "react-scroll";
 import { FaHome, FaBook, FaPaperPlane, FaJava, FaReact, FaNodeJs, FaGithub, FaFigma} from 'react-icons/fa';
 import {TbBrandTypescript} from 'react-icons/tb';
-import { RiJavascriptLine, RiNextjsLine, } from 'react-icons/ri';
+import { RiJavascriptLine, RiNextjsLine, RiFolderDownloadLine } from 'react-icons/ri';
 import {PiFileHtml, PiFileCssBold  } from 'react-icons/pi';
 import {BiLogoSpringBoot, BiLogoMongodb } from 'react-icons/bi';
 import {SiPostgresql } from 'react-icons/si';
 import {DiScrum } from 'react-icons/di';
 import { useState, useEffect} from 'react';
-import portfolioImage from './assets/IMG_0920.jpg';
+import portfolioImage from './assets/IMG_1121.jpg';
+import EmailForm from "./components/EmailForm";
 
 const PDF_FILE_URL = '/Wille%20cv%20-%202025.pdf';
 
@@ -68,18 +69,15 @@ function App() {
       <header>
         <nav>
           <h2>Wille Portfolio</h2>
-          <ul>
-            {menuItems.map((menu) => (
-              <li key={menu.id}>
-                <Link to={menu.title} smooth={true} offset={-80} duration={500}>
-                  {menu.title}
-                  {menu.icon && <span className="menu-icon">{menu.icon}</span>}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+      <ul>
+        {menuItems.map((menu) => (
+          <li key={menu.id}>
+            {menu.icon} {menu.title}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </header>
 
       <main>
         
@@ -108,12 +106,14 @@ function App() {
               Min utbildning inkluderade även två LIA-perioder där jag arbetade praktiskt i ett utvecklingsteam hos Klarr med att bygga en plattform som hjälper skolor följa elevers praktikframsteg.
               </p>
             </div>
+            
             <div className="cv-button-container">
-              <button onClick={() => downloadCV(PDF_FILE_URL)}> Download CV</button>
-            </div>
+             <button className="cv-icon-button" onClick={() => downloadCV(PDF_FILE_URL)}>
+              <RiFolderDownloadLine />
+             </button>
+             Download CV
+           </div>
           </div>
-
-          
 
           <div className="portfolio-tabs">
             <button
@@ -134,6 +134,7 @@ function App() {
   >
     Tools
   </button>
+  
 </div>
 
           <div className="portfolio-list">
@@ -240,7 +241,7 @@ function App() {
         <section id="contact" className="content contact-section">
           <div className="contact-content">
             <h2>Contact Me</h2>
-            <p>Feel free to reach out via email or through my social channels!</p>
+           <EmailForm />
           </div>
         </section>
       </main>
