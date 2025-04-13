@@ -47,13 +47,14 @@ const EmailForm = () => {
     onChange={(e) => setEmail(e.target.value)}
     />
     <textarea 
+    placeholder='Message'
     cols={30}
     rows={10}
     value={message}
     onChange={(e) => setMessage(e.target.value)}
     >
     </textarea>
-    <button type="submit">Send</button>
+    <button className='sendEmailButton' type="submit">Send</button>
     </form>
   );
 }

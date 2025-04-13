@@ -210,7 +210,30 @@ nav {
   margin-bottom: 10px;
   font-size: 5rem;
 }
+.contact-content {
+  background-color: red;
+  width: 350px;
+}
 .email-form {
+  background-color: blue;
   display: flex;
   flex-direction: column;
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+ .sendEmailButton{
+  background-color: #a71c1c;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.sendEmailButton:hover {
+  background-color: #3d0808;
 }
