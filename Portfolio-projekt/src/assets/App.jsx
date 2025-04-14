@@ -10,7 +10,6 @@ import { DiScrum } from "react-icons/di";
 import { useState, useEffect } from "react";
 import portfolioImage from "./assets/IMG_1121.jpg";
 import EmailForm from "./components/EmailForm";
-import.meta.env.VITE_EXAMPLE;
 
 const PDF_FILE_URL = "/Wille%20cv%20-%202025.pdf";
 
