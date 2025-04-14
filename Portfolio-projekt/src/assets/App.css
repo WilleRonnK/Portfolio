@@ -68,7 +68,7 @@ nav {
 }
 
 .home-button{
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(148, 15, 15);
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -176,10 +176,10 @@ nav {
 }
 
 .portfolio-tabs button:hover {
-  background-color: #961d1d;
+  background-color: rgb(148, 15, 15);
 }
 .portfolio-tabs .active-tab {
-  background-color: #961d1d;
+  background-color: rgb(148, 15, 15);
   color: white;
 }
 
@@ -245,7 +245,7 @@ textarea {
   border-color: black;
 }
  .sendEmailButton{
-  background-color: #a71c1c;
+  background-color: rgb(148, 15, 15);
   color: white;
   border: none;
   padding: 10px;
@@ -255,7 +255,7 @@ textarea {
   font-size: 16px;
 }
 .sendEmailButton:hover {
-  background-color: #3d0808;
+  background-color: rgb(148, 15, 15);
 }
 .social-icons {
   display: flex;
@@ -271,5 +271,5 @@ textarea {
   transition: color 0.3s ease; 
 }
 .social-icons a:hover {
-  color: #961d1d; 
+  color: rgb(148, 15, 15); 
 }

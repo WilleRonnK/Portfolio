@@ -76,15 +76,19 @@ function App() {
 
       <main>
         <section id="home" className="content home-section">
-          <div className="home-content">
-            <h1>{homeText}</h1>
-            <p>{homeDescription}</p>
-            {homeButton && (
-              <Link to="portfolio" smooth={true} offset={-80} duration={500}>
-                <button className="home-button">{homeButton}</button>
-              </Link>
-            )}
-          </div>
+        <div className="home-content">
+          <h1 style={{ visibility: homeText ? "visible" : "hidden" }}>
+            {homeText || "Hi, my name is Wille"}
+          </h1>
+        <p style={{ visibility: homeDescription ? "visible" : "hidden" }}>
+         {homeDescription || "I'm a Software Developer"}
+        </p>
+          {homeButton && (
+            <Link to="portfolio" smooth={true} offset={-80} duration={500}>
+             <button className="home-button">{homeButton}</button>
+            </Link>
+          )}  
+       </div>
         </section>
 
         <section id="portfolio" className="content portfolio-section">
