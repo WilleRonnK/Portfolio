@@ -13,26 +13,35 @@ import EmailForm from "./components/EmailForm";
 
 const PDF_FILE_URL = "/Wille%20cv%20-%202025.pdf";
 
-function useTypewriter(text, speed = 50, delay = 50) {
-  const [displayText, setDisplayText] = useState("");
+function useTypewriter(texts, speed = 100, delayBetween = 1500) {
+  const [currentText, setCurrentText] = useState("");
+  const [index, setIndex] = useState(0); // which text
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    let i = 0;
-    const startTyping = setTimeout(() => {
-      const typingInterval = setInterval(() => {
-        if (i < text.length) {
-          setDisplayText((prev) => prev + text.charAt(i));
-          i++;
-        } else {
-          clearInterval(typingInterval);
-        }
+    if (index >= texts.length) return;
+
+    const currentString = texts[index];
+    if (charIndex <= currentString.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText((prev) =>
+          prev + currentString.charAt(charIndex)
+        );
+        setCharIndex((prev) => prev + 1);
       }, speed);
-    }, delay);
 
-    return () => clearTimeout(startTyping);
-  }, [text, speed, delay]);
+      return () => clearTimeout(timeout);
+    } else {
+      const delay = setTimeout(() => {
+        setCurrentText((prev) => prev + "\n");
+        setCharIndex(0);
+        setIndex((prev) => prev + 1);
+      }, delayBetween);
+      return () => clearTimeout(delay);
+    }
+  }, [charIndex, index, texts, speed, delayBetween]);
 
-  return displayText;
+  return currentText;
 }
 
 function App() {
@@ -42,9 +51,11 @@ function App() {
     { id: 3, title: "contact", icon: <FaPaperPlane /> },
   ];
 
-  const homeText = useTypewriter("  Hi, my name is Wille", 100, 0);
-  const homeDescription = useTypewriter("  I'm a Software Developer", 100, 2000);
-  const homeButton = useTypewriter(" See my experience", 100, 4500);
+  const typedOutput = useTypewriter([
+    "Hi, my name is Wille",
+    "I'm a Software Developer",
+    "See my experience"
+  ], 70, 200);
 
   const [activeList, setActiveList] = useState("languages");
 
@@ -76,19 +87,18 @@ function App() {
 
       <main>
         <section id="home" className="content home-section">
-        <div className="home-content">
-          <h1 style={{ visibility: homeText ? "visible" : "hidden" }}>
-            {homeText || "Hi, my name is Wille"}
-          </h1>
-        <p style={{ visibility: homeDescription ? "visible" : "hidden" }}>
-         {homeDescription || "I'm a Software Developer"}
-        </p>
-          {homeButton && (
-            <Link to="portfolio" smooth={true} offset={-80} duration={500}>
-             <button className="home-button">{homeButton}</button>
-            </Link>
-          )}  
-       </div>
+        {typedOutput && (
+  <div className="home-content">
+    <h1>{typedOutput.split("\n")[0]}</h1>
+    {typedOutput.split("\n")[1] && <p>{typedOutput.split("\n")[1]}</p>}
+    {typedOutput.split("\n")[2] && (
+      <Link to="portfolio" smooth={true} offset={-80} duration={500}>
+        <button className="home-button">{typedOutput.split("\n")[2]}</button>
+      </Link>
+    )}
+  </div>
+)}
+
         </section>
 
         <section id="portfolio" className="content portfolio-section">
