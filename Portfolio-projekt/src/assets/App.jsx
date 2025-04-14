@@ -15,7 +15,7 @@ const PDF_FILE_URL = "/Wille%20cv%20-%202025.pdf";
 
 function useTypewriter(texts, speed = 100, delayBetween = 1500) {
   const [currentText, setCurrentText] = useState("");
-  const [index, setIndex] = useState(0); // which text
+  const [index, setIndex] = useState(0); 
   const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
@@ -72,7 +72,6 @@ function App() {
     <div className="App">
       <header>
         <nav>
-          <h2>Wille Portfolio</h2>
           <ul>
             {menuItems.map((menu) => (
               <li key={menu.id}>
