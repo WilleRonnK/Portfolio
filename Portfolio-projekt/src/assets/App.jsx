@@ -7,42 +7,13 @@ import { PiFileHtml, PiFileCssBold } from "react-icons/pi";
 import { BiLogoSpringBoot, BiLogoMongodb } from "react-icons/bi";
 import { SiPostgresql } from "react-icons/si";
 import { DiScrum } from "react-icons/di";
-import { useState, useEffect } from "react";
+import { useState,} from "react";
 import portfolioImage from "./assets/IMG_1121.jpg";
 import EmailForm from "./components/EmailForm";
+import useTypewriterWithErase from "./components/useTypewriterWithErase";
+import useTypewriter from "./components/useTypewriter";
 
 const PDF_FILE_URL = "/Wille%20cv%20-%202025.pdf";
-
-function useTypewriter(texts, speed = 100, delayBetween = 1500) {
-  const [currentText, setCurrentText] = useState("");
-  const [index, setIndex] = useState(0); 
-  const [charIndex, setCharIndex] = useState(0);
-
-  useEffect(() => {
-    if (index >= texts.length) return;
-
-    const currentString = texts[index];
-    if (charIndex <= currentString.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText((prev) =>
-          prev + currentString.charAt(charIndex)
-        );
-        setCharIndex((prev) => prev + 1);
-      }, speed);
-
-      return () => clearTimeout(timeout);
-    } else {
-      const delay = setTimeout(() => {
-        setCurrentText((prev) => prev + "\n");
-        setCharIndex(0);
-        setIndex((prev) => prev + 1);
-      }, delayBetween);
-      return () => clearTimeout(delay);
-    }
-  }, [charIndex, index, texts, speed, delayBetween]);
-
-  return currentText;
-}
 
 function App() {
   const menuItems = [
@@ -56,6 +27,12 @@ function App() {
     "I'm a Software Developer",
     "See my experience"
   ], 70, 200);
+
+   const portfolioTypedText = useTypewriterWithErase(
+    ["Frontend", "Backend", "Fullstack"],
+    200, 
+    1000 
+  );
 
   const [activeList, setActiveList] = useState("languages");
 
@@ -87,7 +64,7 @@ function App() {
       <main>
         <section id="home" className="content home-section">
         {typedOutput && (
-  <div className="home-content">
+    <div className="home-content">
     <h1>{typedOutput.split("\n")[0]}</h1>
     {typedOutput.split("\n")[1] && <p>{typedOutput.split("\n")[1]}</p>}
     {typedOutput.split("\n")[2] && (
@@ -95,7 +72,7 @@ function App() {
         <button className="home-button">{typedOutput.split("\n")[2]}</button>
       </Link>
     )}
-  </div>
+    </div>
 )}
 
         </section>
@@ -110,23 +87,23 @@ function App() {
               />
             </div>
             <div className="portfolio-textbox">
-              <h2>Ung och driven Fullstack-utvecklare</h2>
+              <h2 className="portfolio-headline">
+                <span className="typed-text">{portfolioTypedText}&nbsp;</span>
+              </h2>
               <p>
-                Under min utbildning fokuserade jag på både backend och frontend,
-                med tyngdpunkt på Java, JavaScript och moderna
-                utvecklingsverktyg som GitHub, IntelliJ, Visual Studio Code,
-                MongoDB och StarUML. Min utbildning inkluderade även två
-                LIA-perioder där jag arbetade praktiskt i ett utvecklingsteam
-                hos Klarr med att bygga en plattform som hjälper skolor följa
-                elevers praktikframsteg.
+                I am a passionate <span className="portfolio-text-highlight">Junior Software Developer</span> eager to start my professional journey in tech. 
+                With a strong foundation in <span className="portfolio-text-highlight">React</span>, <span className="portfolio-text-highlight">Node.js</span>, and Web development, 
+                I enjoy building clean, efficient, and <span className="portfolio-text-highlight">user-friendly solutions</span>. 
+                I'm constantly learning and growing, driven by a love for <span className="portfolio-text-highlight">problem-solving</span> and <span className="portfolio-text-highlight">innovation</span>. 
+                I'm excited to contribute to impactful projects and collaborate with others to create technology that makes a difference.
               </p>
             </div>
 
             <div className="cv-button-container">
               <button className="cv-icon-button" onClick={downloadCV}>
-                <RiFolderDownloadLine />
+                <RiFolderDownloadLine className="cv-icon" />
+                <span className="cv-icon-text">Download CV</span>
               </button>
-              Download CV
             </div>
           </div>
 
