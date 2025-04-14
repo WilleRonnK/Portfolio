@@ -34,27 +34,26 @@ const EmailForm = () => {
     }
   return (
     <form onSubmit={handleSubmit} className="email-form">
-    <input 
-    type="text"
-    placeholder="Your Name"
-    value={name}
-    onChange={(e) => setName(e.target.value)}
-    />
-    <input
-    type="email"
-    placeholder="Your Email"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    />
-    <textarea 
-    placeholder='Message'
-    cols={30}
-    rows={10}
-    value={message}
-    onChange={(e) => setMessage(e.target.value)}
-    >
-    </textarea>
-    <button className='sendEmailButton' type="submit">Send</button>
+      <div className="input-row">
+        <input 
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <textarea 
+        placeholder="Message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <button className="sendEmailButton" type="submit">Submit</button>
     </form>
   );
 }

@@ -1,6 +1,6 @@
 import "./App.css";
 import { Link } from "react-scroll";
-import { FaHome,FaBook,FaPaperPlane,FaJava,FaReact,FaNodeJs,FaGithub,FaFigma,} from "react-icons/fa";
+import { FaHome,FaBook,FaPaperPlane,FaJava,FaReact,FaNodeJs,FaGithub,FaFigma,FaInstagram } from "react-icons/fa";
 import { TbBrandTypescript } from "react-icons/tb";
 import {RiJavascriptLine,RiNextjsLine,RiFolderDownloadLine,} from "react-icons/ri";
 import { PiFileHtml, PiFileCssBold } from "react-icons/pi";
@@ -12,7 +12,6 @@ import portfolioImage from "./assets/IMG_1121.jpg";
 import EmailForm from "./components/EmailForm";
 
 const PDF_FILE_URL = "/Wille%20cv%20-%202025.pdf";
-
 
 function useTypewriter(text, speed = 50, delay = 50) {
   const [displayText, setDisplayText] = useState("");
@@ -66,7 +65,9 @@ function App() {
           <ul>
             {menuItems.map((menu) => (
               <li key={menu.id}>
-                {menu.icon} {menu.title}
+                <Link to={menu.title} smooth={true} offset={-80} duration={500}>
+                  {menu.icon} {menu.title}
+                </Link>
               </li>
             ))}
           </ul>
@@ -171,8 +172,24 @@ function App() {
 
         <section id="contact" className="content contact-section">
           <div className="contact-content">
-            <h2>Contact Me</h2>
+            <div className="contact-textbox">
+              <h1>Lets connect:</h1>
+             <p>If you want my mail: willerkjellqvist@gmail.com</p>
+             <p>If you want to hear my voice: 0705571017</p>
+             <div className="social-icons">
+              <a href="https://github.com/WilleRonnK" target="_blank" rel="noopener noreferrer" > 
+              <FaGithub />
+              </a>
+              <a href="https://www.instagram.com/willeronnkjellqvist/"target="_blank" rel="noopener noreferrer" > 
+              <FaInstagram />
+              </a>
+              </div>
+
+              </div>
+
+            <div className="contact-email-container">
             <EmailForm />
+            </div>
           </div>
         </section>
       </main>
