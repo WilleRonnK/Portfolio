@@ -9,26 +9,30 @@ const EmailForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const servideId = 'service_ikahpuj';
+        const serviceId = 'service_dyyp2v4';
         const templateId = 'template_wtpcw4g';
         const publicKey = 'R3y8JLMC81W5NIAvx';
 
         const templateParams = {
-            from_name: name,
-            from_email: email,
+            from_name: name.trim(),
+            from_email: email.trim(),
             to_name: 'Wille',
-            message: message,
+            message: message.trim(),
         };
+          console.log('Sending email with params:', templateParams);
 
-        emailjs.send(servideId, templateId, templateParams, publicKey)
+        emailjs.send(serviceId, templateId, templateParams, publicKey)
             .then((response) => {
                 console.log('Email sent successfully!', response);
+                alert('Email sent successfully!'); //
                 setName('');
                 setEmail('');
                 setMessage('');
             })
             .catch((error) => {
                 console.error('Error sending email:', error);
+                console.log('Error details:', error.text);
+                 alert('Failed to send email. Please try again later.');
             });
 
     }

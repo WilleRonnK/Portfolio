@@ -101,9 +101,10 @@ nav {
   justify-content: space-between; 
   align-items: center;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   padding: 10px;
-  gap: 20px; 
+  gap: 10px; 
+  
 }
 
 .portfolio-image {
@@ -188,16 +189,15 @@ nav {
 .portfolio-tabs {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
 }
 
 .portfolio-tabs button {
   padding: 0.5rem 1rem;
-  border: none;
+  border: 0.5px solid #ff0303; 
+  border-color: black;
   background-color: #eee;
   cursor: pointer;
-  border-radius: 8px;
   font-weight: bold;
   font-family: "Limelight", sans-serif;
 }
@@ -217,11 +217,13 @@ nav {
   list-style: none;
   padding: 1rem;
   width: 50%;
+  margin-bottom: 100px;
 }
 .portfolio-list li {
   display: flex; 
   flex-direction: column; 
   align-items: center; 
+  cursor: default;
   justify-content: center; 
   padding: 0.5rem;
   margin: 10px;

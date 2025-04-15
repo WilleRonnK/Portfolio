@@ -92,9 +92,11 @@ function App() {
               </h2>
               <p>
                 I am a passionate <span className="portfolio-text-highlight">Junior Software Developer</span> eager to start my professional journey in tech. 
-                With a strong foundation in <span className="portfolio-text-highlight">React</span>, <span className="portfolio-text-highlight">Node.js</span>, and Web development, 
+                With a strong foundation in <span className="portfolio-text-highlight">React</span>, <span className="portfolio-text-highlight">Node.js</span>, and 
+                <span className="portfolio-text-highlight">Web development,</span>
                 I enjoy building clean, efficient, and <span className="portfolio-text-highlight">user-friendly solutions</span>. 
-                I'm constantly learning and growing, driven by a love for <span className="portfolio-text-highlight">problem-solving</span> and <span className="portfolio-text-highlight">innovation</span>. 
+                I'm constantly learning and growing, driven by a love for <span className="portfolio-text-highlight">problem-solving</span> and 
+                <span className="portfolio-text-highlight">innovation</span>. 
                 I'm excited to contribute to impactful projects and collaborate with others to create technology that makes a difference.
               </p>
             </div>
