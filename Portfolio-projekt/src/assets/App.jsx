@@ -52,7 +52,12 @@ function App() {
           <ul>
             {menuItems.map((menu) => (
               <li key={menu.id}>
-                <Link to={menu.title} smooth={true} offset={-80} duration={500}>
+                <Link
+                  to={menu.title}
+                  smooth={true}
+                  offset={menu.title === "home" ? -80 : menu.title === "contact" ? 100 : 0} 
+                  duration={500}
+                >
                   {menu.icon} {menu.title}
                 </Link>
               </li>
@@ -166,8 +171,8 @@ function App() {
           <div className="contact-content">
             <div className="contact-textbox">
               <h1>Lets connect:</h1>
-             <p>If you want my mail: willerkjellqvist@gmail.com</p>
-             <p>If you want to hear my voice: 0705571017</p>
+             <p>If you want my mail: <span className="contact-highlight1">willerkjellqvist@gmail.com</span></p>
+             <p1>If you want to hear my voice: <span className="contact-highlight2">+46 07 557 1017 </span></p1>
              <div className="social-icons">
               <a href="https://github.com/WilleRonnK" target="_blank" rel="noopener noreferrer" > 
               <FaGithub />
