@@ -13,7 +13,7 @@ import EmailForm from "./components/EmailForm";
 import useTypewriterWithErase from "./components/useTypewriterWithErase";
 import useTypewriter from "./components/useTypewriter";
 
-const PDF_FILE_NAME = "cv.pdf";
+const PDF_FILE_URL = "cv.pdf";
 
 function App() {
   const menuItems = [
