@@ -13,7 +13,7 @@ import EmailForm from "./components/EmailForm";
 import useTypewriterWithErase from "./components/useTypewriterWithErase";
 import useTypewriter from "./components/useTypewriter";
 
-const PDF_FILE_URL = "/Wille%20cv%20-%202025.pdf";
+const PDF_FILE_NAME = "cv.pdf";
 
 function App() {
   const menuItems = [
@@ -39,7 +39,7 @@ function App() {
   const downloadCV = () => {
     const link = document.createElement("a");
     link.href = PDF_FILE_URL;
-    link.download = "WilleCv-2025.pdf";
+    link.download = "CV.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
