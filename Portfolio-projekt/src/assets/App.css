@@ -24,6 +24,7 @@ nav {
     margin: 0 auto;
     font-size: 17px;
     outline: 2px solid rgb(148, 15, 15);
+    font-family: "Cal Sans", sans-serif;
   }
  
   ul {
@@ -45,7 +46,6 @@ nav {
     text-decoration: none;
     color: rgb(255, 255, 255);
     text-transform: capitalize;
-
   }
  
   .content {
@@ -84,7 +84,7 @@ nav {
   position: relative;
   border: none;
   cursor: pointer;
-  font-family: "Limelight", sans-serif;
+  font-family: "Cal Sans", sans-serif;
   font-size: 16px;
 }
 .home-button:hover{
@@ -107,7 +107,6 @@ nav {
   margin-bottom: 100px;
   padding: 10px;
   gap: 10px; 
-  
 }
 
 .portfolio-image {
@@ -136,6 +135,7 @@ nav {
   min-height: 295px;
   border-radius: 10px; 
   color: white;
+  font-family: "Cal Sans", sans-serif;
 }
 .portfolio-headline{
   display: inline-block;
@@ -176,7 +176,7 @@ nav {
   font-size: 110px;
   cursor: pointer;
   color: rgb(255, 255, 255);
-  font-family: "Limelight", sans-serif;
+  font-family: "Cal Sans", sans-serif;
 }
 .cv-icon-text {
   font-size: 20px;
@@ -203,7 +203,7 @@ nav {
   background-color: #eee;
   cursor: pointer;
   font-weight: bold;
-  font-family: "Limelight", sans-serif;
+  font-family: "Cal Sans", sans-serif;
 }
 .portfolio-tabs button:hover {
   background-color: rgb(148, 15, 15);
@@ -236,6 +236,7 @@ nav {
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  font-family: "Cal Sans", sans-serif;
 }
 
 .portfolio-icon {
@@ -271,7 +272,7 @@ input, textarea {
   font-size: 20px; 
   border: 1px solid #ff0303; 
   border-color: black;
-  font-family: "Limelight", sans-serif;
+  font-family: "Cal Sans", sans-serif;
 }
 
 textarea {
@@ -319,6 +320,7 @@ textarea {
   font-size: 18px;
   border-radius: 10px; 
   padding: 20px; 
+  font-family: "Cal Sans", sans-serif;
 }
 .contact-highlight2,
 .contact-highlight1 {
